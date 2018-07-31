@@ -1,8 +1,19 @@
-<html>
+<!doctype html>
+<html lang="en">
 <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
-	</head>
+</head>
 <body>
+	<nav class="navbar navbar-light bg-light">
+			<a class="navbar-brand" href='{{url_for('showRestaurants')}}'>
+				<img src="{{ url_for('images', filename='round_home_black_18dp.png') }}" class="d-inline-block align-top" alt="">
+				Show All Restaurants
+			</a>
+			<button type="submit" class="btn btn-primary">Login</button>
+	</nav>
 <h1> Are you sure you want to delete {{item.name}}? </h1>
 
 <form action="{{ url_for('deleteMenuItem',restaurant_id = item.restaurant_id, menu_id=item.id)}}" method = 'post'>
@@ -14,7 +25,7 @@
 
 </form>
 
-<a href = '{{url_for('restaurantMenu', restaurant_id = restaurant_id)}}'> Cancel </a>
+<a href = '{{url_for('showMenu', restaurant_id = restaurant_id)}}'> Cancel </a>
 </body>
 
 </html>
